@@ -28,7 +28,13 @@ namespace MessageBoardBackend.Controllers
         {
             return messages;
         }
-        
+
+        [HttpGet("{name}")]
+        public IEnumerable<Models.Message> Get(string name)
+        {
+            return messages.FindAll(message => message.Owner == name);
+        }
+
         [HttpPost]
         public Models.Message Post([FromBody] Models.Message message)
         {
