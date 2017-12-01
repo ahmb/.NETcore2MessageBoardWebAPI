@@ -45,3 +45,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.cache
+.vs/MessageBoardBackend/v15/.suo
+*.cache
+MessageBoardBackend/obj/Debug/netcoreapp2.0/MessageBoardBackend.pdb
+*.suo
+.vs/MessageBoardBackend/v15/Server/sqlite3/storage.ide
+*.dll
+*.pdb
