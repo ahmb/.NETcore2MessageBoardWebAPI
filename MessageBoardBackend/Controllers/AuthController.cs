@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace MessageBoardBackend.Controllers
 {
@@ -58,7 +59,11 @@ namespace MessageBoardBackend.Controllers
 
         public JwtPakcet CreateJwtPacket(Models.User user)
         {
-            var jwt = new JwtSecurityToken();
+            var claims = new Claim[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id)
+            };
+            var jwt = new JwtSecurityToken(claims: claims);
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
             return new JwtPakcet() { Token = encodedJwt, FirstName = user.FirstName };
 
