@@ -21,6 +21,7 @@ namespace MessageBoardBackend
                 Owner = "Bob",
                 Text = "hi"
             });
+            context.Users.Add(new Models.User { Email = "a", FirstName = "Tim", Password = "a" });
 
             context.SaveChanges();
         }
